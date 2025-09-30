@@ -1,7 +1,7 @@
 +++
 title = "Hello World"
 date = 2025-09-30
-description = "tl;dr: First post ever! Writing about languages I'm learning (Zig) and sharing knowledge. Nervous but excited!"
+description = "TL;DR: First post ever! Writing about languages I'm learning, problems I'm solving, and what actually works."
 
 [extra]
 tags = ["introduction", "blogging"]
