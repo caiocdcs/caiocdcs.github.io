@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="{{ config.default_language | default(value="en") }}">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>{% block title %}{{ config.title }}{% endblock title %}</title>
+    <meta name="description" content="{% block description %}{{ config.description }}{% endblock description %}">
+    <meta name="author" content="{{ config.extra.author }}">
+
+    <!-- RSS Feed -->
+    {% if config.generate_feeds %}
+    <link rel="alternate" type="application/rss+xml" title="{{ config.title }}" href="{{ get_url(path="rss.xml") }}">
+    {% endif %}
+
+    <!-- Stylesheet -->
+    <link rel="stylesheet" href="{{ get_url(path="style.css") }}">
+</head>
+<body>
+    <!-- Skip to content for accessibility -->
+    <a href="#main-content" class="skip-link">Skip to main content</a>
+
+    <!-- Header -->
+    <header>
+        <a href="{{ get_url(path="") }}" class="site-title">{{ config.extra.author }}</a>
+        <nav>
+            <a href="{{ get_url(path="") }}" {% if current_path == "/" %}aria-current="page"{% endif %}>Home</a>
+            <a href="{{ get_url(path="blog/") }}" {% if current_path is starting_with("/blog") %}aria-current="page"{% endif %}>Blog</a>
+            <a href="{{ get_url(path="about/") }}" {% if current_path == "/about/" %}aria-current="page"{% endif %}>About</a>
+        </nav>
+    </header>
+
+    <!-- Main content -->
+    <main id="main-content">
+        {% block content %}{% endblock content %}
+    </main>
+
+    <!-- Footer -->
+    <footer>
+        <p>&copy; {{ now() | date(format="%Y") }} {{ config.extra.author }} •
+        {% if config.extra.github %}<a href="https://github.com/{{ config.extra.github }}">GitHub</a> • {% endif %}
+        {% if config.generate_feeds %}<a href="{{ get_url(path="rss.xml") }}">RSS</a> • <a href="{{ get_url(path="atom.xml") }}">Atom</a>{% endif %}</p>
+    </footer>
+</body>
+</html>

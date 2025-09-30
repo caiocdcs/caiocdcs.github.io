@@ -1,0 +1,21 @@
+base_url = "https://caiocdcs.github.io"
+title = "caiocdcs | blog"
+description = "Technical writing about programming, software development, and the tools that make our work better"
+default_language = "en"
+compile_sass = true
+build_search_index = true
+generate_feeds = true
+feed_filenames = ["atom.xml", "rss.xml"]
+
+
+
+[markdown]
+highlight_code = true
+highlight_theme = "base16-ocean-dark"
+render_emoji = true
+
+[extra]
+author = "caiocdcs"
+github = "caiocdcs"
+linkedin = "caiocdcs"
+email = "caio.cdcs@gmail.com"

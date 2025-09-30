@@ -1,0 +1,30 @@
+{% extends "base.html" %}
+
+{% block title %}{{ config.title }}{% endblock title %}
+
+{% block content %}
+<h1>Hello, I'm Caio</h1>
+<p>Technical writing about programming, software development, and the tools that make our work better.</p>
+
+<h2>Latest Posts</h2>
+
+{% set blog_section = get_section(path="blog/_index.md") %}
+{% if blog_section.pages %}
+    {% for post in blog_section.pages | slice(end=5) %}
+        <div class="post-item">
+            <h3><a href="{{ post.permalink }}">{{ post.title }}</a></h3>
+            <div class="post-meta">
+                {{ post.date | date(format="%Y-%m-%d") }}
+                {% if post.reading_time %} • {{ post.reading_time }} min read{% endif %}
+            </div>
+            {% if post.description %}
+            <p class="post-excerpt">{{ post.description }}</p>
+            {% endif %}
+        </div>
+    {% endfor %}
+
+    <p><a href="{{ get_url(path="blog/") }}">All posts →</a></p>
+{% else %}
+    <p>No posts yet.</p>
+{% endif %}
+{% endblock content %}
