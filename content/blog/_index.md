@@ -6,5 +6,3 @@ template = "blog.html"
 page_template = "blog-page.html"
 paginate_by = 10
 +++
-
-Technical articles, tutorials, and thoughts about software development, tools, and experiences. I write about what I learn and explore new technologies.
