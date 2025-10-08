@@ -22,6 +22,7 @@ When I'm not coding, you'll find me:
 - Reading (both technical and fiction)
 - Experimenting with dessert recipes in the kitchen
 - Tending to my plants
+- Self hosting
 
 ## Get in touch
 
